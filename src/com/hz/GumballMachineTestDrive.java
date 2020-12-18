@@ -6,26 +6,6 @@ public class GumballMachineTestDrive {
         GumballMachine gumballMachine = new GumballMachine(5);
         GumballMonitor monitor = new GumballMonitor(gumballMachine);
 
-
-//        gumballMachine.dispense();
-//        monitor.getResult();
-//
-//        gumballMachine.insertQuarter();
-//        gumballMachine.turnCrank();
-//        gumballMachine.dispense();
-//        monitor.getResult();
-//
-//        gumballMachine.insertQuarter();
-//        gumballMachine.ejectQuarter();
-//        gumballMachine.turnCrank();
-//        gumballMachine.dispense();
-//        monitor.getResult();
-//
-//        gumballMachine.insertQuarter();
-//        gumballMachine.turnCrank();
-//        gumballMachine.dispense();
-//        monitor.getResult();
-
         monitor.getResult();
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
