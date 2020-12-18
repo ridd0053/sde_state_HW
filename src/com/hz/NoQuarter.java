@@ -3,8 +3,15 @@ package com.hz;
 public class NoQuarter implements GumballMoneyState{
     private GumballMachine machine;
 
+
     NoQuarter(GumballMachine machine){
         this.machine = machine;
+
+    }
+
+    @Override
+    public String getState() {
+        return "No Quarter";
     }
 
     @Override
@@ -27,4 +34,6 @@ public class NoQuarter implements GumballMoneyState{
     public void dispense() {
         System.out.println("You need to pay first");
     }
+
+
 }

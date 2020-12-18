@@ -6,7 +6,14 @@ public class SoldState implements GumballMoneyState{
 
     SoldState(GumballMachine machine){
         this.machine = machine;
+
     }
+
+    @Override
+    public String getState() {
+        return "Sold";
+    }
+
     @Override
     public void insertQuarter() {
         System.out.println("Please wait, we're already giving you a gumball");
@@ -20,20 +27,21 @@ public class SoldState implements GumballMoneyState{
     @Override
     public void turnCrank() {
         System.out.println("Turning twice doesn't get you another gumball!");
+
+
     }
+
 
     @Override
     public void dispense() {
-        if(machine.getCount() > 1) {
+        if(machine.getCount() >= 1) {
             System.out.println("A gumball comes rolling out the slot");
-            machine.setCount();
+            machine.dispenseGumball();
             machine.changeState(new NoQuarter(machine));
         }
-        else if (machine.getCount() == 0) {
+        else if (machine.getCount() == 0){
                 System.out.println("Oops, out of gumballs!");
                 machine.changeState(new SoldOutState(machine));
-            } else {
-            machine.changeState(new NoQuarter(machine));
 
             }
     }

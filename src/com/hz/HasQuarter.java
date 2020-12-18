@@ -5,7 +5,14 @@ public class HasQuarter implements GumballMoneyState{
     private GumballMachine machine;
 
     HasQuarter(GumballMachine machine){
+
         this.machine = machine;
+
+    }
+
+    @Override
+    public String getState() {
+        return "Has Quarter";
     }
 
     @Override
@@ -22,7 +29,9 @@ public class HasQuarter implements GumballMoneyState{
     @Override
     public void turnCrank() {
         System.out.println("You turned...");
-       machine.changeState(new SoldState(machine));
+        machine.changeState(new SoldState(machine));
+        new SoldState(machine).dispense();
+
     }
 
     @Override

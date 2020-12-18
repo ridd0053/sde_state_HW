@@ -1,35 +1,31 @@
 package com.hz;
 
 public class GumballMachine {
-
-//    final static int SOLD_OUT = 0;
-//    final static int NO_QUARTER = 1;
-//    final static int HAS_QUARTER = 2;
-//    final static int SOLD = 3;
-
-//    int state = SOLD_OUT;
-
     GumballMonitor gumballMonitor = new GumballMonitor(this);
+
     private GumballMoneyState currentState;
     int count = 0;
 
     public GumballMachine(int count) {
         currentState = new NoQuarter(this);
         this.count = count;
-        if (count > 0) {
-
-        }
-
     }
+    public String getState(){
+        return currentState.getState();
+    }
+
     public int getCount(){
         return count;
     }
-    public void setCount(){
+    public void dispenseGumball(){
         this.count -= 1;
     }
 
     public void changeState(GumballMoneyState state){
         currentState = state;
+    }
+    public void refill(int numGumBalls){
+        count = numGumBalls;
     }
 
     public void insertQuarter(){
@@ -104,30 +100,10 @@ public class GumballMachine {
 //        }
 //    }
 
-//    public void refill(int numGumBalls) {
-//        this.count = numGumBalls;
-//        state = NO_QUARTER;
-//    }
+//    //    public void refill(int numGumBalls) {
+////        this.count = numGumBalls;
+////        state = NO_QUARTER;
+////    }
 //
-//    public String toString() {
-//        StringBuffer result = new StringBuffer();
-//        result.append("\nMighty Gumball, Inc.");
-//        result.append("\nJava-enabled Standing Gumball Model #2004\n");
-//        result.append("Inventory: " + count + " gumball");
-//        if (count != 1) {
-//            result.append("s");
-//        }
-//        result.append("\nMachine is ");
-//        if (state == SOLD_OUT) {
-//            result.append("sold out");
-//        } else if (state == NO_QUARTER) {
-//            result.append("waiting for quarter");
-//        } else if (state == HAS_QUARTER) {
-//            result.append("waiting for turn of crank");
-//        } else if (state == SOLD) {
-//            result.append("delivering a gumball");
-//        }
-//        result.append("\n");
-//        return result.toString();
-//    }
+
 }
